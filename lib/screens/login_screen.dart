@@ -18,18 +18,19 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             Container(
-              // color: CustomTheme.secondColorGradient,
-              height: 270,
+              padding: EdgeInsets.only(bottom: screenHeight * 0.1),
+              height: screenHeight * 0.4,
               child: Transform.scale(
-                  scale: 2.3,
+                  scale: (screenWidth * 0.05) / 6,
                   child: Transform.translate(
-                    offset: const Offset(0, -50),
+                    offset: Offset(0, -50 + (screenHeight * 0.02)),
                     child: Transform.rotate(
                       angle: -(pi / 5.5),
                       child: SvgPicture.asset(
@@ -40,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   )),
             ),
             Container(
-              height: 200,
+              height: screenHeight * 0.3,
               child: Stack(
                 alignment: Alignment.bottomCenter,
                 children: [
@@ -61,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
               padding:
                   const EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
               // color: Colors.orange,
-              height: 202,
+              height: screenHeight * 0.3,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
