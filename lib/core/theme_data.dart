@@ -33,4 +33,5 @@ class CustomTheme{
   //Text sizes
   static const hintTextSize = 14.0;
   static const buttonTextSize = 16.0;
+  static const headingTextSize = 20.0;
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stadia_app_ui/core/images.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
 
+import '../widgets/list_of_game_cards.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -10,6 +12,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  static const leftRightMargin = 25.0;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -36,41 +40,89 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             child: Column(
               children: [
-                Expanded(
-                  child: ListView.builder(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 25,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Stack(
-                        children: [
-                          Card(
-                            // margin: EdgeInsets.symmetric(
-                            //     horizontal: 5, vertical: 25),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20.0),
-                            ),
-                            child: Image.asset(
-                              AppAssets.acGameImage,
-                            ),
-                            clipBehavior: Clip.hardEdge,
-                          ),
-                          ...listOfProfileAvatars,
-                        ],
-                      );
-                    },
-                    itemCount: 3,
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                  ),
-                ),
+                topBar,
+                const ListOfGameCards(),
               ],
             ),
           ),
           Container(
-            color: Colors.black,
             height: screenHeight * .15,
+            margin: EdgeInsets.symmetric(horizontal: leftRightMargin),
+            padding: EdgeInsets.only(top: 4),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Assassin's Creed",
+                      style: TextStyle(
+                          color: CustomTheme.headingTextColor,
+                          fontSize: CustomTheme.headingTextSize,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Stack(
+                      clipBehavior: Clip.none,
+                      alignment: Alignment.centerRight,
+                      children: [
+                        Container(
+                          alignment: Alignment.center,
+                          height: 35,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            color: Colors.grey[300],
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(8),bottomRight: Radius.circular(8)),
+                          ),
+                          child: Text(
+                            "FREE",
+                            style: TextStyle(color: Colors.grey[600]),
+                          ),
+                        ),
+                        Positioned(
+                            right: 45,
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: 35,
+                              width: 48,
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: const Text(
+                                "PRO",
+                                style: TextStyle(color: CustomTheme.whiteColor),
+                              ),
+                            )),
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                  height: screenHeight * .07,
+                  width: double.infinity,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [
+                        CustomTheme.secondColorGradient,
+                        CustomTheme.firstColorGradient,
+                      ],
+                      begin: Alignment.centerLeft,
+                      end: Alignment.centerRight,
+                    ),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: const Text(
+                    "PAY \$150",
+                    style: TextStyle(
+                      color: CustomTheme.whiteColor,
+                      fontWeight: FontWeight.bold,
+                      fontSize: CustomTheme.buttonTextSize,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           Container(
             color: Colors.blue,
@@ -85,20 +137,15 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  List<Widget> get listOfProfileAvatars => [
-        getAvatar(12),
-        getAvatar(37),
-        getAvatar(62),
-      ];
-
-  Widget getAvatar(double l) {
-    return Positioned(
-      bottom: 14,
-      left: l,
-      child: const CircleAvatar(
-        backgroundColor: Colors.red,
-        backgroundImage: AssetImage(AppAssets.controllerImage),
-      ),
-    );
-  }
+  Widget get topBar => Container(
+        alignment: Alignment.centerLeft,
+        margin: const EdgeInsets.only(top: 25, left: leftRightMargin, bottom: 15),
+        child: const Text(
+          "Explore",
+          style: TextStyle(
+            color: CustomTheme.whiteColor,
+            fontSize: CustomTheme.headingTextSize,
+          ),
+        ),
+      );
 }
