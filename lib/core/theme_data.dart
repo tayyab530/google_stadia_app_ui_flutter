@@ -14,6 +14,9 @@ class CustomTheme{
   static const firstColorAppBarGradient = Color(0Xff26214a);
   static const secondColorAppBarGradient = Color(0Xff403c57);
 
+  //bottom bar color
+  static var bottomBarColor = Colors.grey[200];
+
 
 //button gradient colors
   static const firstColorGradient = Color(0Xffb11053);

@@ -58,87 +58,106 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-            Container(
-              padding:
-                  const EdgeInsets.only(left: 40.0, right: 40.0, bottom: 20.0),
-              // color: Colors.orange,
-              height: screenHeight * 0.3,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: CustomTheme.textFieldColor,
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    height: _inputHeight,
-                    // padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "User Name",
-                        hintStyle: TextStyle(
-                            color: CustomTheme.textFieldHintColor,
-                            fontSize: CustomTheme.hintTextSize),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 10.0,
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: CustomTheme.textFieldColor,
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    height: _inputHeight,
-                    child: const TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: "Password",
-                        hintStyle: TextStyle(
-                          color: CustomTheme.textFieldHintColor,
-                          fontSize: CustomTheme.hintTextSize,
+            Stack(
+              children: [
+                bottomBGCirle,
+                Container(
+                  padding: const EdgeInsets.only(
+                      left: 40.0, right: 40.0, bottom: 30.0),
+                  // color: Colors.orange,
+                  height: screenHeight * 0.3,
+                  width: screenWidth,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: CustomTheme.textFieldColor,
+                          borderRadius: BorderRadius.circular(14),
                         ),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        height: _inputHeight,
+                        // padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "User Name",
+                            hintStyle: TextStyle(
+                                color: CustomTheme.textFieldHintColor,
+                                fontSize: CustomTheme.hintTextSize),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                          ),
+                        ),
                       ),
-                    ),
+                      const SizedBox(
+                        height: 10.0,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: CustomTheme.textFieldColor,
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        height: _inputHeight,
+                        child: const TextField(
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Password",
+                            hintStyle: TextStyle(
+                              color: CustomTheme.textFieldHintColor,
+                              fontSize: CustomTheme.hintTextSize,
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 5),
+                          ),
+                        ),
+                      ),
+                      // SizedBox(height: 27.0,),
+                      const Spacer(),
+                      Container(
+                        height: _inputHeight,
+                        width: double.infinity,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [
+                              CustomTheme.secondColorGradient,
+                              CustomTheme.firstColorGradient,
+                            ],
+                            begin: Alignment.centerLeft,
+                            end: Alignment.centerRight,
+                          ),
+                          borderRadius: BorderRadius.circular(14),
+                        ),
+                        child: const Text(
+                          "SING IN",
+                          style: TextStyle(
+                            color: CustomTheme.whiteColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: CustomTheme.buttonTextSize,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  // SizedBox(height: 27.0,),
-                  const Spacer(),
-                  Container(
-                    height: _inputHeight,
-                    width: double.infinity,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      gradient: const LinearGradient(
-                        colors: [
-                          CustomTheme.secondColorGradient,
-                          CustomTheme.firstColorGradient,
-                        ],
-                        begin: Alignment.centerLeft,
-                        end: Alignment.centerRight,
-                      ),
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: const Text(
-                      "SING IN",
-                      style: TextStyle(
-                        color: CustomTheme.whiteColor,
-                        fontWeight: FontWeight.bold,
-                        fontSize: CustomTheme.buttonTextSize,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),
       ),
     );
   }
+
+  Widget get bottomBGCirle => Positioned(
+    top: 70,
+    left: -190,
+    child: Container(
+          width: 1600,
+          height: 1600,
+          decoration: BoxDecoration(
+            color: CustomTheme.bottomBarColor,
+            shape: BoxShape.circle,
+          ),
+        ),
+  );
 }
