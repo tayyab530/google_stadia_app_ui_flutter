@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stadia_app_ui/screens/home_screen.dart';
 
 import '../core/theme_data.dart';
 
@@ -21,7 +22,7 @@ class _InputFieldsAndButtonState extends State<InputFieldsAndButton> {
 
     return Stack(
       children: [
-        bottomBGCirle,
+        bottomBGCircle,
         Container(
           padding: const EdgeInsets.only(left: 40.0, right: 40.0, bottom: 30.0),
           // color: Colors.orange,
@@ -96,32 +97,37 @@ class _InputFieldsAndButtonState extends State<InputFieldsAndButton> {
         ),
       );
 
-  Widget get button => Container(
-        height: InputFieldsAndButton._inputHeight,
-        width: double.infinity,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          gradient: const LinearGradient(
-            colors: [
-              CustomTheme.secondColorGradient,
-              CustomTheme.firstColorGradient,
-            ],
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+  Widget get button => GestureDetector(
+    child: Container(
+          height: InputFieldsAndButton._inputHeight,
+          width: double.infinity,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [
+                CustomTheme.secondColorGradient,
+                CustomTheme.firstColorGradient,
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+            borderRadius: BorderRadius.circular(14),
           ),
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: const Text(
-          "SING IN",
-          style: TextStyle(
-            color: CustomTheme.whiteColor,
-            fontWeight: FontWeight.bold,
-            fontSize: CustomTheme.buttonTextSize,
+          child: const Text(
+            "SING IN",
+            style: TextStyle(
+              color: CustomTheme.whiteColor,
+              fontWeight: FontWeight.bold,
+              fontSize: CustomTheme.buttonTextSize,
+            ),
           ),
         ),
-      );
+    onTap: (){
+      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=> const HomeScreen()));
+    },
+  );
 
-  Widget get bottomBGCirle => Positioned(
+  Widget get bottomBGCircle => Positioned(
         top: 70,
         left: -190,
         child: Container(

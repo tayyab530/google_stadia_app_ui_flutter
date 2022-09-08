@@ -34,9 +34,18 @@ class CustomTheme{
 
   static const whiteColor = Color(0Xffffffff);
 
+  //border curve
+  static const borderCurve = 8.0;
+
 
   //Text sizes
   static const hintTextSize = 14.0;
-  static const buttonTextSize = 16.0;
-  static const headingTextSize = 20.0;
+  static const buttonTextSize = 14.0;
+  static const headingTextSize = 18.0;
+
+  //Constants
+  static const leftRightMargin = 25.0;
+
+  static const serviceTypeBoxHeight = 25.0;
+  static const serviceTypeBoxWidth = 40.0;
 }
