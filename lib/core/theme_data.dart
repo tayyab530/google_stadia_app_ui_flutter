@@ -25,6 +25,8 @@ class CustomTheme{
 //Icons colors
   static var iconColor = Colors.grey[400];
   static var iconActiveColor = Colors.orange;
+  static var visibilityIconActiveColor = Colors.red;
+  static var visibilityIconDeActiveColor = Colors.grey;
 
 //input colors
   static var textFieldColor = Colors.grey[200];
