@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
 import 'package:stadia_app_ui/widgets/profile_avatar.dart';
 
@@ -37,7 +38,13 @@ class DescriptionGameCard extends StatelessWidget {
                 ],
               ),
               shape: BoxShape.circle),
-          child: Image.asset(AppAssets.playIconImage),
+          child: SizedBox(
+              height: 15,
+              width: 15,
+              child: SvgPicture.asset(
+                AppAssets.playIconSVG,
+                fit: BoxFit.fill,
+              )),
         ),
       ],
     );

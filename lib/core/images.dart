@@ -28,5 +28,5 @@ class AppAssets {
   static const String profilePic4 = "assets/profile_avatar_sansa_stark.jpg";
 
   //Icons images
-  static const String playIconImage = "assets/play_icon.png";
+  static const String playIconSVG = "assets/play_icon.svg";
 }
