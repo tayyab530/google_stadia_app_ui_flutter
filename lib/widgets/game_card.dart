@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stadia_app_ui/widgets/profile_avatar.dart';
 
 import '../core/images.dart';
 
@@ -26,18 +27,17 @@ class GameCard extends StatelessWidget {
   }
 
   List<Widget> get listOfProfileAvatars => [
-    getAvatar(12),
-    getAvatar(37),
-    getAvatar(62),
+    getAvatar(12,AppAssets.profilePic1),
+    getAvatar(37,AppAssets.profilePic2),
+    getAvatar(62,AppAssets.profilePic3),
   ];
 
-  Widget getAvatar(double l) {
+  Widget getAvatar(double l,String imagePath) {
     return Positioned(
       bottom: 14,
       left: l,
-      child: const CircleAvatar(
-        backgroundColor: Colors.red,
-        backgroundImage: AssetImage(AppAssets.controllerImage),
+      child: ProfileAvatar(
+        imagePath: imagePath,
       ),
     );
   }

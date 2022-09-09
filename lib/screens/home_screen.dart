@@ -4,6 +4,7 @@ import 'package:stadia_app_ui/core/theme_data.dart';
 import 'package:stadia_app_ui/widgets/pay_button.dart';
 
 import '../widgets/list_of_game_cards.dart';
+import '../widgets/profile_avatar.dart';
 import '../widgets/service_type_boxes.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -14,8 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -49,8 +48,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Container(
             height: screenHeight * .15,
-            margin: EdgeInsets.symmetric(horizontal: CustomTheme.leftRightMargin),
-            padding: EdgeInsets.only(top: 10),
+            margin: const EdgeInsets.symmetric(
+                horizontal: CustomTheme.leftRightMargin),
+            padding: const EdgeInsets.only(top: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
@@ -60,11 +60,48 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(
-            color: Colors.blue,
+            // color: Colors.blue,
             height: screenHeight * .35,
+            padding: const EdgeInsets.only(
+              top: 10,
+              left: CustomTheme.leftRightMargin,
+              right: CustomTheme.leftRightMargin,
+            ),
+            width: double.infinity,
             child: Column(
               children: [
-                avatar
+                Row(
+                  children: [
+                    const ProfileAvatar(
+                      imagePath: AppAssets.profilePic1,
+                    ),
+                    const SizedBox(
+                      width: 5.0,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "John Snow",
+                          style: TextStyle(
+                            fontSize: CustomTheme.playerNameTextSize,
+                            color: CustomTheme.playerNameTextColor,
+                            // fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 2,),
+                        Text(
+                          "15/21/2022",
+                          style: TextStyle(
+                            fontSize: CustomTheme.dateTextSize,
+                            color: CustomTheme.textFieldHintColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -79,8 +116,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget get topBar => Container(
         alignment: Alignment.centerLeft,
-        margin:
-            const EdgeInsets.only(top: 25, left: CustomTheme.leftRightMargin, bottom: 15),
+        margin: const EdgeInsets.only(
+            top: 25, left: CustomTheme.leftRightMargin, bottom: 15),
         child: const Text(
           "Explore",
           style: TextStyle(
@@ -89,10 +126,4 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
-
-  Widget get avatar => const CircleAvatar(
-    backgroundColor: Colors.red,
-    backgroundImage: NetworkImage(AppAssets.profilePic1),
-  );
-
 }

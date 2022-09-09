@@ -9,6 +9,10 @@ static const String controllerImage = "assets/ps4-controller-png-42099.png";
 
 static const String acGameImage = "assets/ac_valhala.jpg";
 
-static const String profilePic1 = "https://cdn.vox-cdn.com/thumbor/o2AXRjdoyonKroOEsxQjYWvtG-U=/99x0:1179x810/1200x800/filters:focal(99x0:1179x810)/cdn.vox-cdn.com/uploads/chorus_image/image/46094226/Jon_snow.0.jpg";
+static const String profilePic1 = "assets/profile_avatar_john_snow.jpg";
+static const String profilePic2 = "assets/profile_avatar_daenerys.jpg";
+static const String profilePic3 = "assets/profile_avatar_arya.jpg";
+static const String profilePic4 = "assets/profile_avatar_sansa_stark.jpg";
+
 }
 

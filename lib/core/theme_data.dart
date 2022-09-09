@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CustomTheme{
 //headings colors
   static const headingTextColor = Color(0Xff424242);
-  static const playerNameTextColor = Color(0Xffa8a8a8);
+  static var playerNameTextColor = Colors.grey[600];
 
 //game text colors
   static const gameTitleTextColor = Color(0Xff7a7a7a);
@@ -42,6 +42,8 @@ class CustomTheme{
   static const hintTextSize = 14.0;
   static const buttonTextSize = 14.0;
   static const headingTextSize = 18.0;
+  static const playerNameTextSize = 12.0;
+  static const dateTextSize = 9.0;
 
   //Constants
   static const leftRightMargin = 25.0;
