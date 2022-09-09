@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../core/images.dart';
 import 'game_card.dart';
 
 class ListOfGameCards extends StatelessWidget {
@@ -15,7 +16,7 @@ class ListOfGameCards extends StatelessWidget {
           bottom: 10,
         ),
         itemBuilder: (context, index) {
-          return const GameCard();
+          return GameCard(bgImagePath: AppAssets.gameImages[index],);
         },
         itemCount: 3,
         scrollDirection: Axis.horizontal,

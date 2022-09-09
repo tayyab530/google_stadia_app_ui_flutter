@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stadia_app_ui/core/images.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
+import 'package:stadia_app_ui/widgets/description_game_card.dart';
+import 'package:stadia_app_ui/widgets/game_card.dart';
 import 'package:stadia_app_ui/widgets/pay_button.dart';
 
 import '../widgets/list_of_game_cards.dart';
@@ -90,7 +92,9 @@ class _HomeScreenState extends State<HomeScreen> {
                             // fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 2,),
+                        SizedBox(
+                          height: 2,
+                        ),
                         Text(
                           "15/21/2022",
                           style: TextStyle(
@@ -102,6 +106,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                Container(
+                    margin: EdgeInsets.only(
+                      left: 50,
+                    ),
+                    child: DescriptionGameCard(
+                      bgImagePath: AppAssets.gameImage_4,
+                    )),
               ],
             ),
           ),

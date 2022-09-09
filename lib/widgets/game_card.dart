@@ -4,8 +4,9 @@ import 'package:stadia_app_ui/widgets/profile_avatar.dart';
 import '../core/images.dart';
 
 class GameCard extends StatelessWidget {
-  const GameCard({Key? key}) : super(key: key);
+  final String bgImagePath;
 
+  const GameCard({Key? key, required this.bgImagePath}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -18,7 +19,7 @@ class GameCard extends StatelessWidget {
           ),
           clipBehavior: Clip.hardEdge,
           child: Image.asset(
-            AppAssets.acGameImage,
+            bgImagePath,
           ),
         ),
         ...listOfProfileAvatars,
