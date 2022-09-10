@@ -42,6 +42,7 @@ class CustomTheme{
   static const hintTextSize = 14.0;
   static const buttonTextSize = 14.0;
   static const headingTextSize = 18.0;
+  static const serviceTypeTextSize = 12.0;
   static const playerNameTextSize = 12.0;
   static const dateTextSize = 9.0;
   static const gameNameTextSize = 18.0;

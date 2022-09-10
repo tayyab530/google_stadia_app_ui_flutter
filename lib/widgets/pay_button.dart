@@ -28,17 +28,6 @@ class PayButton extends StatelessWidget {
           height: screenHeight * .06,
           width: double.infinity,
           alignment: Alignment.center,
-          // decoration: BoxDecoration(
-          //   gradient: const LinearGradient(
-          //     colors: [
-          //       CustomTheme.secondColorGradient,
-          //       CustomTheme.firstColorGradient,
-          //     ],
-          //     begin: Alignment.centerLeft,
-          //     end: Alignment.centerRight,
-          //   ),
-          //   borderRadius: BorderRadius.circular(CustomTheme.borderCurve),
-          // ),
           child: const Text(
             "PAY \$150",
             style: TextStyle(

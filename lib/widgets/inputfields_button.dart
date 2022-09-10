@@ -30,6 +30,7 @@ class _InputFieldsAndButtonState extends State<InputFieldsAndButton> {
           width: screenWidth,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               userName,
               const SizedBox(
@@ -97,34 +98,54 @@ class _InputFieldsAndButtonState extends State<InputFieldsAndButton> {
         ),
       );
 
-  Widget get button => GestureDetector(
-    child: Container(
-          height: InputFieldsAndButton._inputHeight,
-          width: double.infinity,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              colors: [
-                CustomTheme.secondColorGradient,
-                CustomTheme.firstColorGradient,
-              ],
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-            ),
-            borderRadius: BorderRadius.circular(14),
+  Widget get button => InkWell(
+    onTap: () {
+      Navigator.of(context).push(
+        MaterialPageRoute(
+          builder: (BuildContext context) => const HomeScreen(),
+        ),
+      );
+    },
+    child: Ink(
+      height: InputFieldsAndButton._inputHeight,
+      width: double.infinity,
+      // decoration: BoxDecoration(
+      //   gradient: const LinearGradient(
+      //     colors: [
+      //       CustomTheme.secondColorGradient,
+      //       CustomTheme.firstColorGradient,
+      //     ],
+      //     begin: Alignment.centerLeft,
+      //     end: Alignment.centerRight,
+      //   ),
+      //   borderRadius: BorderRadius.circular(14),
+      // ),
+      child: Container(
+        alignment: Alignment.center,
+        height: InputFieldsAndButton._inputHeight,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [
+              CustomTheme.secondColorGradient,
+              CustomTheme.firstColorGradient,
+            ],
+            begin: Alignment.centerLeft,
+            end: Alignment.centerRight,
           ),
-          child: const Text(
-            "SING IN",
-            style: TextStyle(
-              color: CustomTheme.whiteColor,
-              fontWeight: FontWeight.bold,
-              fontSize: CustomTheme.buttonTextSize,
-            ),
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: const Text(
+          "SING IN",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: CustomTheme.whiteColor,
+            fontWeight: FontWeight.bold,
+            fontSize: CustomTheme.buttonTextSize,
           ),
         ),
-    onTap: (){
-      Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context)=> const HomeScreen()));
-    },
+      ),
+    ),
   );
 
   Widget get bottomBGCircle => Positioned(

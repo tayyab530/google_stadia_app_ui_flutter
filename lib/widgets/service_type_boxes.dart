@@ -42,7 +42,7 @@ class _ServiceTypeBoxesState extends State<ServiceTypeBoxes> {
               ),
               child: Text(
                 "FREE",
-                style: TextStyle(color: Colors.grey[600]),
+                style: TextStyle(color: Colors.grey[600],fontSize: CustomTheme.serviceTypeTextSize),
               ),
             ),
             Positioned(
@@ -56,7 +56,7 @@ class _ServiceTypeBoxesState extends State<ServiceTypeBoxes> {
                       borderRadius: BorderRadius.circular(CustomTheme.borderCurve)),
                   child: const Text(
                     "PRO",
-                    style: TextStyle(color: CustomTheme.whiteColor),
+                    style: TextStyle(color: CustomTheme.whiteColor,fontSize: CustomTheme.serviceTypeTextSize),
                   ),
                 )),
           ],

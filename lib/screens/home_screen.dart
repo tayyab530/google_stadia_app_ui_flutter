@@ -99,24 +99,92 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             width: double.infinity,
             child: ListView.builder(
-              itemCount: 2,
+              itemCount: gamesList.length,
               itemBuilder: (ctx, index) {
-                  var game = gamesList[index];
-                  var player = playersList[index];
+                var game = gamesList[index];
+                var player = playersList[index];
                 return PlayerProfileHeader(
                   playerName: player.name,
                   playerProfileAvatar: player.avatarImagePath,
                   gameName: game.gameName,
                   gameDesc: game.gameDesc,
                   gameImagePath: game.imagePath,
-                  dateOfPost: DateTime(2022,Random().nextInt(31) + 1, Random().nextInt(12) + 1,),
+                  dateOfPost: DateTime(
+                    2022,
+                    Random().nextInt(31) + 1,
+                    Random().nextInt(12) + 1,
+                  ),
                 );
               },
             ),
           ),
           Container(
-            color: Colors.white,
+            color: Colors.amber,
             height: screenHeight * .15,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                var gameCircleRadius = constraints.maxHeight * 0.7;
+                var barHeight = constraints.maxHeight * .75;
+                var rightLeftPadding = constraints.maxWidth * 0.15;
+
+                return Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Container(
+                      height: barHeight,
+                      color: Colors.grey,
+                      padding:
+                          EdgeInsets.symmetric(horizontal: rightLeftPadding),
+                      // decoration: BoxDecoration(
+                      //   color: CustomTheme.bottomBarColor,
+                      //   borderRadius: BorderRadius.only(
+                      //     topRight: Radius.circular(30),
+                      //     topLeft: Radius.circular(30),
+                      //   ),
+                      // ),
+                      child: CustomPaint(
+                        painter: CurvePainter(
+                        ),
+                      ),
+                      // child: Row(
+                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //   children: [
+                      //     Icon(
+                      //       Icons.shopping_bag_rounded,
+                      //       color: CustomTheme.iconColor,
+                      //       size: 30,
+                      //     ),
+                      //     Icon(
+                      //       Icons.explore_outlined,
+                      //       color: CustomTheme.iconColor,
+                      //       size: 30,
+                      //     ),
+                      //   ],
+                      // ),
+                    ),
+                    Positioned(
+                      top: 0,
+                      left: (constraints.maxWidth / 2) - (gameCircleRadius / 2),
+                      child: Container(
+                        height: gameCircleRadius,
+                        width: gameCircleRadius,
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              CustomTheme.secondColorGradient,
+                              CustomTheme.firstColorGradient,
+                            ],
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                          ),
+                          shape: BoxShape.circle,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -135,4 +203,31 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       );
+}
+
+
+class CurvePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint();
+    paint.color = Colors.green[800]!;
+    paint.style = PaintingStyle.fill;
+
+    var path = Path();
+
+    path.moveTo(0, size.height * 0.9167);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.875,
+        size.width * 0.5, size.height * 0.9167);
+    path.quadraticBezierTo(size.width * 0.75, size.height * 0.9584,
+        size.width * 1.0, size.height * 0.9167);
+    path.lineTo(size.width, size.height);
+    path.lineTo(0, size.height);
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return true;
+  }
 }
