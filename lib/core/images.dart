@@ -9,10 +9,11 @@ class AppAssets {
 
   //Games images for listview
   static const gameImages = [
-    "assets/farcry_5.jpg",
-    "assets/ac_valhala.jpg",
-    "assets/cod.jpg",
-    "assets/tomb_raider.jpeg",
+    "assets/farcry_5.jpg", // 1
+    "assets/ac_valhala.jpg", //2
+    "assets/cod.jpg",        //3
+    "assets/tomb_raider.jpeg", //4
+    "assets/doom_eternal.jpg", //5
   ];
 
   //Games images for individual access
@@ -20,6 +21,7 @@ class AppAssets {
   static String gameImage_2 = gameImages[1];
   static String gameImage_3 = gameImages[2];
   static String gameImage_4 = gameImages[3];
+  static String gameImage_5 = gameImages[4];
 
   //Profile pictures for avatars
   static const String profilePic1 = "assets/profile_avatar_john_snow.jpg";

@@ -36,15 +36,18 @@ class DescriptionGameCard extends StatelessWidget {
                   Colors.transparent,
                   Colors.red,
                 ],
+                stops: [
+                  0,
+                  1
+                ],
               ),
               shape: BoxShape.circle),
-          child: SizedBox(
-              height: 15,
-              width: 15,
-              child: SvgPicture.asset(
-                AppAssets.playIconSVG,
-                fit: BoxFit.fill,
-              )),
+          child: SvgPicture.asset(
+            height: 15,
+            width: 15,
+            AppAssets.playIconSVG,
+            fit: BoxFit.scaleDown,
+          ),
         ),
       ],
     );
