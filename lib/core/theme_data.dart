@@ -46,6 +46,10 @@ class CustomTheme{
   static const playerNameTextSize = 12.0;
   static const dateTextSize = 9.0;
   static const gameNameTextSize = 18.0;
+  static const bottomBarIconTextSize = 10.0;
+
+  //Icons sizes
+  static const bottomBarIconSize = 28.0;
 
   static var gameNameTextStyle = TextStyle(fontSize: 18.0,fontWeight: FontWeight.bold,color: Colors.grey[600]);
   static var gameDescTextStyle = TextStyle(fontSize: 12.0,color: Colors.grey);

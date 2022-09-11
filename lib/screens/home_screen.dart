@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:stadia_app_ui/core/bottom_bar_icons_icons.dart';
 import 'package:stadia_app_ui/core/images.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
 import 'package:stadia_app_ui/models/game_model.dart';
@@ -90,100 +91,149 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Container(
-            // color: Colors.blue,
-            height: screenHeight * .35,
-            padding: const EdgeInsets.only(
-              top: 10,
-              left: CustomTheme.leftRightMargin,
-              right: CustomTheme.leftRightMargin,
-            ),
-            width: double.infinity,
-            child: ListView.builder(
-              itemCount: gamesList.length,
-              itemBuilder: (ctx, index) {
-                var game = gamesList[index];
-                var player = playersList[index];
-                return PlayerProfileHeader(
-                  playerName: player.name,
-                  playerProfileAvatar: player.avatarImagePath,
-                  gameName: game.gameName,
-                  gameDesc: game.gameDesc,
-                  gameImagePath: game.imagePath,
-                  dateOfPost: DateTime(
-                    2022,
-                    Random().nextInt(31) + 1,
-                    Random().nextInt(12) + 1,
+            height: screenHeight * 0.5,
+            width: screenWidth,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  // color: Colors.blue,
+                  height: screenHeight * 0.5,
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    left: CustomTheme.leftRightMargin,
+                    right: CustomTheme.leftRightMargin,
                   ),
-                );
-              },
-            ),
-          ),
-          Container(
-            color: Colors.amber,
-            height: screenHeight * .15,
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                var gameCircleRadius = constraints.maxHeight * 0.7;
-                var barHeight = constraints.maxHeight * .75;
-                var rightLeftPadding = constraints.maxWidth * 0.15;
+                  width: double.infinity,
+                  child: ListView.builder(
+                    itemCount: gamesList.length,
+                    itemBuilder: (ctx, index) {
+                      var game = gamesList[index];
+                      var player = playersList[index];
+                      return PlayerProfileHeader(
+                        playerName: player.name,
+                        playerProfileAvatar: player.avatarImagePath,
+                        gameName: game.gameName,
+                        gameDesc: game.gameDesc,
+                        gameImagePath: game.imagePath,
+                        dateOfPost: DateTime(
+                          2022,
+                          Random().nextInt(31) + 1,
+                          Random().nextInt(12) + 1,
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                Container(
+                  height: screenHeight * .15,
+                  // color: Colors.white.withOpacity(0),
+                  child: LayoutBuilder(
+                    builder: (context, constraints) {
+                      var gameCircleRadius = constraints.maxHeight * 0.67;
+                      var barHeight = constraints.maxHeight * .75;
+                      var rightLeftPadding = constraints.maxWidth * 0.15;
 
-                return Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      height: barHeight,
-                      color: Colors.grey,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: rightLeftPadding),
-                      // decoration: BoxDecoration(
-                      //   color: CustomTheme.bottomBarColor,
-                      //   borderRadius: BorderRadius.only(
-                      //     topRight: Radius.circular(30),
-                      //     topLeft: Radius.circular(30),
-                      //   ),
-                      // ),
-                      child: CustomPaint(
-                        painter: CurvePainter(
-                        ),
-                      ),
-                      // child: Row(
-                      //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      //   children: [
-                      //     Icon(
-                      //       Icons.shopping_bag_rounded,
-                      //       color: CustomTheme.iconColor,
-                      //       size: 30,
-                      //     ),
-                      //     Icon(
-                      //       Icons.explore_outlined,
-                      //       color: CustomTheme.iconColor,
-                      //       size: 30,
-                      //     ),
-                      //   ],
-                      // ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      left: (constraints.maxWidth / 2) - (gameCircleRadius / 2),
-                      child: Container(
-                        height: gameCircleRadius,
-                        width: gameCircleRadius,
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [
-                              CustomTheme.secondColorGradient,
-                              CustomTheme.firstColorGradient,
-                            ],
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
+                      return Stack(
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          Container(
+                            height: barHeight,
+                            // color: Colors.grey,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: rightLeftPadding),
+                            decoration: BoxDecoration(
+                              color: CustomTheme.bottomBarColor,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(30),
+                                topLeft: Radius.circular(30),
+                              ),
+                            ),
+                            // child: CustomPaint(
+                            //   painter: CurvePainter(
+                            //   ),
+                            // ),
+                            child: Row(
+                              mainAxisAlignment:
+                                  MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      BottomBarIcons.shopping_bag_svgrepo_com,
+                                      color: CustomTheme.iconColor,
+                                      size: CustomTheme.bottomBarIconSize,
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      "Store",
+                                      style: TextStyle(
+                                        color: CustomTheme.iconColor,
+                                        fontSize:
+                                            CustomTheme.bottomBarIconTextSize,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment:
+                                      CrossAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      BottomBarIcons.explore_tool_svgrepo_com,
+                                      color: CustomTheme.iconActiveColor,
+                                      size: CustomTheme.bottomBarIconSize,
+                                    ),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      "Explore",
+                                      style: TextStyle(
+                                        color: CustomTheme.iconActiveColor,
+                                        fontSize:
+                                            CustomTheme.bottomBarIconTextSize,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
-                          shape: BoxShape.circle,
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
+                          Positioned(
+                            top: 0,
+                            left: (constraints.maxWidth / 2) -
+                                (gameCircleRadius / 2),
+                            child: Container(
+                              height: gameCircleRadius,
+                              width: gameCircleRadius,
+                              decoration: const BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    CustomTheme.secondColorGradient,
+                                    CustomTheme.firstColorGradient,
+                                  ],
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                ),
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(Icons.videogame_asset_rounded,
+                                  color: CustomTheme.whiteColor),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -204,7 +254,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       );
 }
-
 
 class CurvePainter extends CustomPainter {
   @override
