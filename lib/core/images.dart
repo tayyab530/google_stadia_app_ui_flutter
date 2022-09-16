@@ -23,6 +23,9 @@ class AppAssets {
   static String gameImage_4 = gameImages[3];
   static String gameImage_5 = gameImages[4];
 
+  //BG for details
+  static String gameImage_BG = "assets/bf_v.jpg";
+
   //Profile pictures for avatars
   static const String profilePic1 = "assets/profile_avatar_john_snow.jpg";
   static const String profilePic2 = "assets/profile_avatar_daenerys.jpg";

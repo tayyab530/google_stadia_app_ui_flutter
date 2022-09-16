@@ -99,10 +99,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   // color: Colors.blue,
                   height: screenHeight * 0.5,
-                  padding: const EdgeInsets.only(
-                    top: 10,
+                  padding: EdgeInsets.only(
+                    top: 0,
                     left: CustomTheme.leftRightMargin,
                     right: CustomTheme.leftRightMargin,
+                    bottom: (screenHeight * .15) * .75,
                   ),
                   width: double.infinity,
                   child: ListView.builder(
@@ -144,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 horizontal: rightLeftPadding),
                             decoration: BoxDecoration(
                               color: CustomTheme.bottomBarColor,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                 topRight: Radius.circular(30),
                                 topLeft: Radius.circular(30),
                               ),
@@ -167,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: CustomTheme.iconColor,
                                       size: CustomTheme.bottomBarIconSize,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 4,
                                     ),
                                     Text(
@@ -190,7 +191,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       color: CustomTheme.iconActiveColor,
                                       size: CustomTheme.bottomBarIconSize,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       height: 4,
                                     ),
                                     Text(
@@ -224,7 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 shape: BoxShape.circle,
                               ),
-                              child: Icon(Icons.videogame_asset_rounded,
+                              child: const Icon(Icons.videogame_asset_rounded,
                                   color: CustomTheme.whiteColor),
                             ),
                           ),

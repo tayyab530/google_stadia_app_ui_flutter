@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
+import 'package:stadia_app_ui/screens/details_screen.dart';
 import 'package:stadia_app_ui/screens/home_screen.dart';
 import 'package:stadia_app_ui/screens/login_screen.dart';
 
@@ -19,8 +20,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: CustomTheme.firstColorGradient,
       ),
-      home: LoginScreen(),
+      // home: LoginScreen(),
       // home: HomeScreen(),
+      home: DetailsScreen(),
     );
   }
 }
