@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stadia_app_ui/core/theme_data.dart';
+import 'package:stadia_app_ui/widgets/play_circle.dart';
 import 'package:stadia_app_ui/widgets/profile_avatar.dart';
 
 import '../core/images.dart';
@@ -27,28 +28,7 @@ class DescriptionGameCard extends StatelessWidget {
             bgImagePath,
           ),
         ),
-        Container(
-          height: 50,
-          width: 50,
-          decoration: const BoxDecoration(
-              gradient: RadialGradient(
-                colors: [
-                  Colors.transparent,
-                  Colors.red,
-                ],
-                stops: [
-                  0,
-                  1
-                ],
-              ),
-              shape: BoxShape.circle),
-          child: SvgPicture.asset(
-            height: 15,
-            width: 15,
-            AppAssets.playIconSVG,
-            fit: BoxFit.scaleDown,
-          ),
-        ),
+        const PlayCircle(),
       ],
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stadia_app_ui/core/images.dart';
+import 'package:stadia_app_ui/widgets/play_circle.dart';
 
 import '../core/bottom_bar_icons_icons.dart';
 import '../core/theme_data.dart';
@@ -11,29 +12,37 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     var screenHeight = MediaQuery.of(context).size.height;
     var screenWidth = MediaQuery.of(context).size.width;
+    var bottomBGBorder = 40.0;
 
     return Scaffold(
       body: Stack(
         alignment: Alignment.bottomLeft,
-        clipBehavior: Clip.none,
         children: [
           Container(
             height: screenHeight * 1,
             alignment: Alignment.topCenter,
             child: Container(
               height: screenHeight * .8,
-              // padding: EdgeInsets.only(bottom: screenHeight * 0.2),
+              width: screenWidth,
+              // margin: EdgeInsets.only(top: screenHeight * 0.055),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage(AppAssets.gameImage_BG),
-                  fit: BoxFit.cover
+                  image: AssetImage(
+                    AppAssets.gameImage_BG,
+                  ),
+                  fit: BoxFit.cover,
                 ),
-                borderRadius: const BorderRadius.only(
-                  bottomRight: Radius.circular(30),
-                  bottomLeft: Radius.circular(30),
+                borderRadius: BorderRadius.only(
+                  bottomRight: Radius.circular(bottomBGBorder),
+                  bottomLeft: Radius.circular(bottomBGBorder),
                 ),
               ),
             ),
+          ),
+          Positioned(
+            top: (screenHeight / 2) - 35,
+            left: (screenWidth / 2) - 35,
+            child: PlayCircle(height: 70,width: 70,),
           ),
           Positioned(
             top: 0,
@@ -113,7 +122,7 @@ class DetailsScreen extends StatelessWidget {
                             children: [
                               Icon(
                                 BottomBarIcons.explore_tool_svgrepo_com,
-                                color: CustomTheme.iconActiveColor,
+                                color: CustomTheme.iconColor,
                                 size: CustomTheme.bottomBarIconSize,
                               ),
                               const SizedBox(
@@ -122,7 +131,7 @@ class DetailsScreen extends StatelessWidget {
                               Text(
                                 "Explore",
                                 style: TextStyle(
-                                  color: CustomTheme.iconActiveColor,
+                                  color: CustomTheme.iconColor,
                                   fontSize: CustomTheme.bottomBarIconTextSize,
                                 ),
                               ),
